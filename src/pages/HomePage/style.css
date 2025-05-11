@@ -1,13 +1,8 @@
-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
+label {
+  display: block;
 }
 
-.logo {
-  width: 10rem;
-  height: 10rem;
-  background-image: url(./img/rocket.svg);
-  background-size: contain;
+.error {
+  color: red;
+  font-size: 0.7rem;
 }
