@@ -4,10 +4,15 @@ import './style.css';
 export const HomePage = () => {
   const [userName, setUserName] = useState("")
   const [country, setCountry] = useState("Česká republika")
+  const [newsletterAccepted, setNewsletterAccepted] = useState(false)
+
+  const zajem = newsletterAccepted ? "dostávat pravidelně novinky" : "o novinky nemá zájem" 
 
   return (
     <div className="container">
-      <form onSubmit={() => alert(`Uživatel "${userName}" ze země ${country} se chce registrovat.`)}>
+      <form onSubmit={() => 
+        alert(`Uživatel "${userName}" ze země ${country} se chce registrovat a ${zajem}.`)
+      }>
         
         <label>Uživatelské jméno: {` `}
           <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)}/>
@@ -22,6 +27,15 @@ export const HomePage = () => {
             <option value="Polsko">Polsko</option>
             <option value="Slovenská republika">Slovenská republika</option>
           </select>
+        </label>
+
+        <label>
+          <input 
+            type="checkbox" 
+            value={newsletterAccepted} 
+            onChange={() => setNewsletterAccepted(!newsletterAccepted)}
+          />
+          Chci pravidelně dostávat novinky do mé e-mailové schránky.
         </label>
 
         <button type='submit' disabled={userName.length === 0 ? true : false}>Registrovat</button>
